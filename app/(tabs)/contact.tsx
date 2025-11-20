@@ -8,6 +8,7 @@ export default function ContactScreen() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
