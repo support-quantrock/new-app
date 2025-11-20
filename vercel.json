@@ -1,6 +1,30 @@
 {
-  "buildCommand": "npm run build:web",
-  "outputDirectory": "dist",
-  "cleanUrls": true,
-  "trailingSlash": false
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_expo/(.*)",
+      "dest": "/_expo/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*).html",
+      "dest": "/$1.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1.html"
+    }
+  ]
 }
