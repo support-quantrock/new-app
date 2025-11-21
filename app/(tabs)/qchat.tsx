@@ -579,7 +579,7 @@ export default function QChat() {
               style={[styles.tab, activeTab === 'Learning' && styles.activeTab]}
               onPress={() => setActiveTab('Learning')}>
               <Text style={[styles.tabText, activeTab === 'Learning' && styles.activeTabText]}>
-                {st === 1 ? 'Learn Challenge' : 'Skill Challenge'}
+                {st === 1 ? 'Skill Challenge' : 'Skill Challenge'}
               </Text>
             </TouchableOpacity>
           )}
@@ -587,7 +587,7 @@ export default function QChat() {
             style={[styles.tab, activeTab === 'training' && styles.activeTab]}
             onPress={() => setActiveTab('training')}>
             <Text style={[styles.tabText, activeTab === 'training' && styles.activeTabText]}>
-              {st === 1 ? 'Invest Challenge' : st === 0 ? 'Learn Challenge' : 'Invest Challenge'}
+              {st === 1 ? 'Learn Challenge' : st === 0 ? 'Learn Challenge' : 'Invest Challenge'}
             </Text>
           </TouchableOpacity>
           {st === 0 && (
@@ -615,7 +615,7 @@ export default function QChat() {
                 <View style={styles.cardTitle}>
                   <View style={styles.cardTitleLeft}>
                     <Trophy size={28} color="#fbbf24" strokeWidth={2} />
-                    <Text style={styles.titleText}>Training Leaderboard</Text>
+                    <Text style={styles.titleText}>{st === 0 ? 'Learning Leaderboard' : 'Training Leaderboard'}</Text>
                   </View>
                   <Text style={styles.yourRankText}>Your rank: 15</Text>
                 </View>

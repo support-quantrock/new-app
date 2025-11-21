@@ -388,13 +388,13 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#ef4444',
     marginBottom: 12,
-    textAlign: 'right',
+    textAlign: 'left',
   },
   legalDisclaimerText: {
     fontSize: 12,
     color: '#94a3b8',
     lineHeight: 20,
-    textAlign: 'right',
+    textAlign: 'left',
   },
   infoCard: {
     backgroundColor: 'rgba(30, 41, 59, 0.4)',
