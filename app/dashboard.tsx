@@ -7,7 +7,7 @@ import Svg, { Circle } from 'react-native-svg';
 
 export default function Dashboard() {
   const [selectedTab, setSelectedTab] = useState('Overview');
-  const [selectedStage, setSelectedStage] = useState('CHALLENGE');
+  const [selectedStage, setSelectedStage] = useState('Skills');
   const [selectedOrderTab, setSelectedOrderTab] = useState('Open');
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedBottomTab, setSelectedBottomTab] = useState('watchlist');
@@ -343,9 +343,9 @@ export default function Dashboard() {
 
               <View style={styles.stageSliderContainer}>
                 <View style={styles.stageLabelRow}>
-                  <Text style={styles.stageSliderLabel}>TRAINING</Text>
-                  <Text style={styles.stageSliderLabel}>CHALLENGE</Text>
-                  <Text style={styles.stageSliderLabel}>TRADING</Text>
+                  <Text style={styles.stageSliderLabel}>Learn</Text>
+                  <Text style={styles.stageSliderLabel}>Skills</Text>
+                  <Text style={styles.stageSliderLabel}>Invest</Text>
                 </View>
                 <View style={styles.stageSlider}>
                   <View style={styles.stageSliderSection}>

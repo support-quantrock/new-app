@@ -90,7 +90,7 @@ export default function HomeScreen() {
             <Timer size={28} color="#22c55e" strokeWidth={2} />
           </View>
 
-          <Text style={styles.cardTitle}>🔵 Learn Challenge</Text>
+          <Text style={styles.cardTitle}>Learn Challenge</Text>
           <Text style={[styles.cardSubtitle, styles.cardSubtitleGreen]}>Beginners – Free Simulator Training</Text>
 
           <Text style={[styles.cardDescription, styles.cardDescriptionWhite]}>
@@ -214,7 +214,7 @@ export default function HomeScreen() {
             <Zap size={28} color="#a78bfa" strokeWidth={2} />
           </View>
 
-          <Text style={styles.cardTitle}>🟣 Invest Challenge</Text>
+          <Text style={styles.cardTitle}>Invest Challenge</Text>
           <Text style={[styles.cardSubtitle, styles.cardSubtitlePurple]}>Qualified & Exclusively for Premium Pro Members</Text>
 
           <Text style={[styles.cardDescription, styles.cardDescriptionWhite]}>
