@@ -193,13 +193,17 @@ export default function LearningChallenge() {
       <View style={styles.progressSection}>
         <View style={styles.progressBar}>
           {Array.from({ length: 20 }).map((_, index) => (
-            <View
-              key={index}
-              style={[
-                styles.progressBlock,
-                index < 1 && styles.progressBlockFilled,
-              ]}
-            />
+            <View key={index} style={styles.progressBlockContainer}>
+              {index < 1 && (
+                <Text style={styles.activeDayNumber}>{index + 1}</Text>
+              )}
+              <View
+                style={[
+                  styles.progressBlock,
+                  index < 1 && styles.progressBlockFilled,
+                ]}
+              />
+            </View>
           ))}
         </View>
       </View>
@@ -376,8 +380,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 4,
   },
-  progressBlock: {
+  progressBlockContainer: {
     flex: 1,
+    alignItems: 'center',
+  },
+  activeDayNumber: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#5b5fff',
+    marginBottom: 4,
+  },
+  progressBlock: {
+    width: '100%',
     height: 8,
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     borderRadius: 2,
