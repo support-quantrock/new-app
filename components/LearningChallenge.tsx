@@ -206,7 +206,7 @@ export default function LearningChallenge() {
 
       <View style={styles.challengeHeader}>
         <View style={styles.titleRow}>
-          <Text style={styles.challengeTitle}>[Active Day Number] / 28 day Skill challenge</Text>
+          <Text style={styles.challengeTitle}>28 day Skill challenge</Text>
           <TouchableOpacity
             style={styles.infoButton}
             onPress={() => setShowInfoModal(true)}

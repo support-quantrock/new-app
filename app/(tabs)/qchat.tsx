@@ -28,10 +28,10 @@ export default function QChat() {
   const { st } = useChallengeContext();
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [activeSponsorIndex, setActiveSponsorIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState<'Learning' | 'training' | 'challenge' | 'trading'>('Learning');
+  const [activeTab, setActiveTab] = useState<'Learning' | 'training' | 'challenge' | 'trading'>(st === 0 ? 'training' : 'Learning');
   const [activeSponsorTab, setActiveSponsorTab] = useState<'banking' | 'educational' | 'media'>('banking');
   const [expandedTraining, setExpandedTraining] = useState(true);
-  const [expandedChallenge, setExpandedChallenge] = useState(false);
+  const [expandedChallenge, setExpandedChallenge] = useState(st === 0 ? true : false);
   const [expandedTrading, setExpandedTrading] = useState(false);
   const [expandedCard1, setExpandedCard1] = useState(false);
   const [expandedCard4, setExpandedCard4] = useState(false);
@@ -1030,6 +1030,94 @@ export default function QChat() {
 
               </LinearGradient>
             </View>
+          )}
+
+          {activeTab === 'challenge' && st === 0 && (
+            <>
+              <View style={styles.sectionHeader}>
+                <Text style={styles.sectionTitle}>Quantrock Championship Stages</Text>
+              </View>
+
+              <View style={styles.carouselContainer}>
+                <ScrollView
+                  ref={carouselRef}
+                  horizontal
+                  pagingEnabled
+                  showsHorizontalScrollIndicator={false}
+                  onScroll={handleScroll}
+                  onScrollBeginDrag={handleScrollBeginDrag}
+                  onScrollEndDrag={handleScrollEndDrag}
+                  scrollEventThrottle={16}
+                  contentContainerStyle={styles.carouselContent}
+                  decelerationRate="fast"
+                  snapToInterval={width - 40}>
+                  {challengeCards.map((card) => renderChallengeCard(card))}
+                </ScrollView>
+
+                <View style={styles.pagination}>
+                  {challengeCards.map((_, index) => (
+                    <View
+                      key={index}
+                      style={[
+                        styles.paginationDot,
+                        index === activeCardIndex && styles.paginationDotActive,
+                      ]}
+                    />
+                  ))}
+                </View>
+              </View>
+
+              <View style={styles.sectionHeader}>
+                <Text style={styles.sectionTitle}>Sponsors</Text>
+              </View>
+
+              <View style={styles.tabContainer}>
+                <TouchableOpacity
+                  style={[styles.tab, activeSponsorTab === 'banking' && styles.activeTab]}
+                  onPress={() => setActiveSponsorTab('banking')}>
+                  <Text style={[styles.tabText, activeSponsorTab === 'banking' && styles.activeTabText]}>Banking</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.tab, activeSponsorTab === 'educational' && styles.activeTab]}
+                  onPress={() => setActiveSponsorTab('educational')}>
+                  <Text style={[styles.tabText, activeSponsorTab === 'educational' && styles.activeTabText]}>Educational</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.tab, activeSponsorTab === 'media' && styles.activeTab]}
+                  onPress={() => setActiveSponsorTab('media')}>
+                  <Text style={[styles.tabText, activeSponsorTab === 'media' && styles.activeTabText]}>Media</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.sponsorCarouselContainer}>
+                <ScrollView
+                  ref={sponsorCarouselRef}
+                  horizontal
+                  pagingEnabled
+                  showsHorizontalScrollIndicator={false}
+                  onScroll={handleSponsorScroll}
+                  onScrollBeginDrag={handleSponsorScrollBeginDrag}
+                  onScrollEndDrag={handleSponsorScrollEndDrag}
+                  scrollEventThrottle={16}
+                  contentContainerStyle={styles.carouselContent}
+                  decelerationRate="fast"
+                  snapToInterval={width - 40}>
+                  {getCurrentSponsors().map((card) => renderSponsorCard(card))}
+                </ScrollView>
+
+                <View style={styles.pagination}>
+                  {getCurrentSponsors().map((_, index) => (
+                    <View
+                      key={index}
+                      style={[
+                        styles.paginationDot,
+                        index === activeSponsorIndex && styles.paginationDotActive,
+                      ]}
+                    />
+                  ))}
+                </View>
+              </View>
+            </>
           )}
 
           {activeTab === 'trading' && (
